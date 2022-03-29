@@ -1,2 +1,3 @@
 # starship-template
-My configuration for starship shell promt
+My configuration for starship shell prompt
+
