@@ -74,6 +74,59 @@ $character"""
 
 add_newline = true
 
+# Begin of icons taken from https://starship.rs/presets/nerd-font.html
+[aws]
+symbol = "  "
+
+[buf]
+symbol = " "
+
+[dart]
+symbol = " "
+
+[docker_context]
+symbol = " "
+
+[elixir]
+symbol = " "
+
+[elm]
+symbol = " "
+
+[golang]
+symbol = " "
+
+[haskell]
+symbol = " "
+
+[hg_branch]
+symbol = " "
+
+[java]
+symbol = " "
+
+[julia]
+symbol = " "
+
+[memory_usage]
+symbol = " "
+
+[nim]
+symbol = " "
+
+[nix_shell]
+symbol = " "
+
+[nodejs]
+symbol = " "
+
+[package]
+symbol = " "
+
+[rust]
+symbol = " "
+# End of icons taken from https://starship.rs/presets/nerd-font.html
+
 [character]
 success_symbol = "[➜](bold green)"
 error_symbol = "[✗](bold red) "
@@ -85,6 +138,7 @@ threshold = 50
 format = "[$symbol \\[$name\\]]($style) "
 
 [directory]
+read_only = " "
 truncation_symbol = "…/"
 truncation_length = 2
 style = " yellow"
@@ -94,10 +148,11 @@ style = " yellow"
 # default = "unknown shell"
 
 [git_branch]
-symbol = ""
+symbol = ""
 format = "[$symbol$branch]($style)"
 
 [conda]
+symbol = " "
 format = "[$symbol$environment]($style) "
 
 [python]
@@ -108,7 +163,7 @@ format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 [time]
 disabled = false
 format = '[$time](bold green) '
-time_format = "%F-%T"
+time_format = "%F %T"
 
 [username]
 style_user = "yellow bold"
