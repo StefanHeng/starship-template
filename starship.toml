@@ -153,6 +153,7 @@ format = "[$symbol$branch]($style)"
 
 [conda]
 symbol = " "
+ignore_base = false
 format = "[$symbol$environment]($style) "
 
 [python]
@@ -162,19 +163,19 @@ format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 
 [time]
 disabled = false
-format = '[$time](bold green) '
+format = '[$time](bold green)[|](red) '
 time_format = "%F %T"
 
 [username]
 style_user = "yellow bold"
 style_root = "black bold"
-format = "[$user]($style)[@](purple)"
+format = "[$user]($style)[@](red)"
 disabled = false
 show_always = true
 
 [hostname]
 ssh_only = false
-format = "[$hostname]($style)[::](purple)"
+format = "[$hostname]($style)[::](red)"
 trim_at = ""
 style = "yellow bold"
 disabled = false
