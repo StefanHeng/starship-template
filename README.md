@@ -1,10 +1,8 @@
 # starship-template
 
 <img
-  src="https://raw.githubusercontent.com/StefanHeng/starship-template/master/assets/demo/demo, 03.29.22.png"
+  src="https://github.com/StefanHeng/starship-template/blob/master/assets/demo%2C%2003.29.22.png"
   style="zoom:50%;" />
-
-
 
 
 
