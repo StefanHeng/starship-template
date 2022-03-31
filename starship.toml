@@ -149,7 +149,7 @@ style = " yellow"
 
 [git_branch]
 symbol = ""
-format = "[$symbol$branch]($style)"
+format = "[$symbol$branch]($style) "
 
 [conda]
 symbol = " "
@@ -158,12 +158,14 @@ format = "[$symbol$environment]($style) "
 
 [python]
 symbol = " "
+version_format = "${raw}"
 style = "cyan bold"
 format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+python_binary = "python3"
 
 [time]
 disabled = false
-format = '[$time](bold green)[|](red) '
+format = '[$time](bold green)[|](red)'
 time_format = "%F %T"
 
 [username]
