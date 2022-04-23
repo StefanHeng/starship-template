@@ -163,6 +163,12 @@ style = "cyan bold"
 format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 python_binary = "python3"
 
+[ruby]
+symbol = " "
+version_format = "${raw}"
+style = "cyan bold"
+format = "[$symbol($version )]($style)"
+
 [time]
 disabled = false
 format = '[$time](bold green)[|](red)'
