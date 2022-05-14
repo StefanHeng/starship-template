@@ -1,18 +1,19 @@
-# starship-template
+# terminal-setup
 
-<img
-  src="https://github.com/StefanHeng/starship-template/blob/master/assets/demo%2C%2003.29.22.png"
-  style="zoom:50%;" />
-
-
-
-My configuration for starship shell prompt
+My terminal setup 
 
 
 
 Terminal: `iTerm2`
 
-Shell: `zsh`, with `oh-my-zsh`  
+ `zsh` shell, with `oh-my-zsh`, `starship` prompt 
+
+
+
+Useful plugin: [`colorls`](https://github.com/athityakumar/colorls) 
+
+
+
 
 
 
