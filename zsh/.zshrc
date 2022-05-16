@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/stefanh/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -12,7 +12,7 @@ ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
+# a theme from this variable instead of looking in $ZSH/themes/
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
@@ -23,17 +23,16 @@ ZSH_THEME="robbyrussell"
 # Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
+# Uncomment one of the following lines to change the auto-update behavior
+# zstyle ':omz:update' mode disabled  # disable automatic updates
+# zstyle ':omz:update' mode auto      # update automatically without asking
+# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+# zstyle ':omz:update' frequency 13
 
 # Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS=true
+# DISABLE_MAGIC_FUNCTIONS="true"
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -45,6 +44,9 @@ ZSH_THEME="robbyrussell"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
+# You can also set it to another string to have that shown instead of the default red dots.
+# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
+# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
 # COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
@@ -64,38 +66,17 @@ ZSH_THEME="robbyrussell"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Which plugins would you like to load?
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-# plugins=(git z github history macos pip pyenv pylint python sublime vscode colorize)
 plugins=(
     git
-    z
-    github
-    history
-    macos
-    pyenv
-    pylint
-    python
-    sublime
-    vscode
-    bundler
-    dotenv
-    rake
-    rbenv
-    ruby
-    jsontools
-    node
-    pip
-    web-search
+    zsh-syntax-highlighting
     zsh-autosuggestions
-    colored-man-pages
-    colorize
-    common-aliases
-    copyfile
+    auto-color-ls
 )
-ZSH_COLORIZE_STYLE="colorful"
+source ~/zsh-plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 source $ZSH/oh-my-zsh.sh
 
@@ -124,56 +105,13 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-source /Users/stefanh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /Users/stefanh/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /Users/stefanh/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /Users/stefanh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-
-source ~/.bashrc
-
-unalias pip
-
-# icdiff with exit code
-[ ! -z "$(which icdiff)" ] && function xcdiff {
-  out__=$(icdiff $1 $2) && echo $out__ && [ -z $out__ ]
-}
-
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
-
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/3.0.0/bin:$PATH"
-export PATH="$HOME/.gem/ruby/3.0.0/bin:$PATH"
-export PATH="/Users/stefanh/.gem/ruby/3.0.0/bin:$PATH"
-
-alias inkscape="/Applications/Inkscape.app/Contents/MacOS/inkscape"
-alias python3.10="/usr/local/Cellar/python@3.10"
-export PATH="/usr/local/opt/python@3.10/bin:$PATH"
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/stefanh/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/stefanh/opt/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/stefanh/opt/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/stefanh/opt/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-export PATH="$HOME/.rbenv/bin:$PATH"
 
 # ============================ Being of my theme customization ============================
 # ==================== Begin of original `robbyrussell` theme ====================
 PROMPT="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
 # ==================== Begin of my added ====================
 PROMPT+="%{$fg[green]%}$(date +%F) %*%{$fg[magenta]%}|"
-PROMPT+=" %{$fg[yellow]%}%n%{$fg[magenta]%}@%{$fg[yellow]%}%m"
+PROMPT+="%{$fg[yellow]%}%n%{$fg[magenta]%}@%{$fg[yellow]%}%m"
 # ==================== End of my added ====================
 PROMPT+=' %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)'
 
@@ -184,8 +122,21 @@ ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
 # ==================== End of original `robbyrussell` theme ====================
 # ============================ End of my theme customization ============================
 
-PATH=$PATH:$(ruby -e 'puts Gem.bindir')
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/stefanhg/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/stefanhg/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/stefanhg/opt/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/stefanhg/opt/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
 alias lc='colorls'
 
 eval "$(starship init zsh)"
-
