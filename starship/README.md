@@ -14,8 +14,8 @@ My configuration for starship shell prompt
 From starship configuration, this may be helpful:
 
 > The conda module shows the current Conda (opens new window) environment, if `$CONDA_DEFAULT_ENV` is set.
-
-**TIP**
-
-This does not suppress conda's own prompt modifier, you may want to run `conda config --set changeps1 False`.
+>
+> **TIP**
+>
+> This does not suppress conda's own prompt modifier, you may want to run `conda config --set changeps1 False`.
 
